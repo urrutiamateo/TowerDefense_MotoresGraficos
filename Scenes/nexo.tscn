@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://btto4lw34ub11"]
+
+[ext_resource type="Script" uid="uid://bs10y3c60coiy" path="res://script/nexo.gd" id="1_lq1vw"]
+[ext_resource type="Texture2D" uid="uid://ntd2qyxjidhj" path="res://assets/Dark_red_ crystal2.png" id="2_15jd8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j6cxn"]
+radius = 14.0
+height = 44.0
+
+[node name="Nexo" type="Area2D" unique_id=1976657354]
+script = ExtResource("1_lq1vw")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1231329203]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_15jd8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1761386459]
+position = Vector2(2, 0)
+shape = SubResource("CapsuleShape2D_j6cxn")
