@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://d21ogo06xosra"]
+
+[ext_resource type="Script" uid="uid://cj1qviwrkatfq" path="res://script/enemy_fast.gd" id="1_y3yis"]
+[ext_resource type="Texture2D" uid="uid://bsueqru50ps0" path="res://assets/EnemyFast.png" id="2_60amu"]
+
+[node name="EnemyFast" type="Area2D" unique_id=1694434322]
+script = ExtResource("1_y3yis")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1209190286]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_60amu")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1792117602]
+position = Vector2(-20, 20)
+rotation = 4.712389
+scale = Vector2(0.8, 0.8)
+polygon = PackedVector2Array(0, 0, 50, 0, 25, 50)

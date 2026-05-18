@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://qgc08ni4tm35"]
+
+[ext_resource type="Script" uid="uid://dflqjt7m63xnb" path="res://script/EnemyBase.gd" id="1_2frsa"]
+[ext_resource type="Texture2D" uid="uid://bh0cvbc2fwhxd" path="res://assets/EnemyBase.png" id="1_ltrxv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2frsa"]
+radius = 101.00495
+
+[node name="EnemyBase" type="Area2D" unique_id=106996274]
+script = ExtResource("1_2frsa")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1606174419]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_ltrxv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1862442717]
+shape = SubResource("CircleShape2D_2frsa")

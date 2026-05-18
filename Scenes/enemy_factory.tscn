@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cg18mustd2txv"]
+
+[ext_resource type="Script" uid="uid://ba7rvw64scxde" path="res://script/enemy_factory.gd" id="1_iwq1i"]
+
+[node name="EnemyFactory" type="Node" unique_id=448954762]
+script = ExtResource("1_iwq1i")
