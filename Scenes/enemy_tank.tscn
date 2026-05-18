@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://ddg50w1p36g30"]
+
+[ext_resource type="Script" uid="uid://6lur15euoa13" path="res://script/enemy_tank.gd" id="1_44s6k"]
+[ext_resource type="Texture2D" uid="uid://d0fyf037f7cfk" path="res://assets/EnemyTank.png" id="2_rels8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cbe8q"]
+size = Vector2(51, 50)
+
+[node name="EnemyTank" type="Area2D" unique_id=1348569498]
+script = ExtResource("1_44s6k")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=264221486]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_rels8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=660331439]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_cbe8q")
