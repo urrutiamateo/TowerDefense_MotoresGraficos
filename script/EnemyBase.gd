@@ -1,5 +1,7 @@
 extends Area2D
 
+signal enemy_dead
+
 @export var velocidad : float = 100
 @export var vida_max : int = 100
 @export var daño_nexo : int = 1
@@ -18,7 +20,6 @@ func _process(delta: float) -> void:
 
 func take_damage(cantidad):
 	vida_actual -= cantidad
-
 	if vida_actual <= 0:
 		die()
 

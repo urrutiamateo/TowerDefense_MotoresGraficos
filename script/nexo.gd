@@ -1,5 +1,7 @@
 extends Area2D
 
+signal nexo_dañado(vida_restante)
+
 @export var vida_max: int = 15
 var vida_actual: int
 
@@ -9,6 +11,7 @@ func _ready() -> void:
 
 func recibir_daño(cantidad):
 	vida_actual -= cantidad
+	emit_signal("nexo_dañado", vida_actual)
 	if vida_actual <= 0:
 		game_over()
 
