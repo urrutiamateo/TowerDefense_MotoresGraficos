@@ -15,5 +15,6 @@ curve = SubResource("Curve2D_8m3kh")
 visible = false
 position = Vector2(28, 69)
 rotation = -0.0012547045
+loop = false
 
 [node name="EnemyBase" parent="PathFollow2D" unique_id=1952378587 instance=ExtResource("1_ibpmw")]
