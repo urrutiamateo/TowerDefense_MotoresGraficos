@@ -1,25 +1,42 @@
-extends Node2D
+extends Node
 
-@export var enemigo_escena : PackedScene
-@onready var path_follow : PathFollow2D = get_parent().get_node("Path2D/PathFollow2D")
+@export var factory : Node
+@onready var path = $"../Path2D"
+
+var oleadas = [
+	["fast", "fast", "fast", "fast", "fast"],          
+	["tank", "tank", "tank"],                  
+	["fast", "tank", "fast", "tank", "fast"]   
+]
+
+var oleada_actual = 0
+var indice_enemigo = 0
 
 func _ready():
-	print("PathFollow2D encontrado:", path_follow)
-	var timer = Timer.new()
-	timer.wait_time = 4.0
-	timer.autostart = true
-	timer.one_shot = false
-	add_child(timer)
-	timer.timeout.connect(spawn_enemigo)
+	spawn_next_enemy()
 
-func spawn_enemigo():
-	var path_follow_instancia = PathFollow2D.new()
-	get_parent().get_node("Path2D").add_child(path_follow_instancia)
-	
-	var enemigo = enemigo_escena.instantiate()
-	path_follow_instancia.add_child(enemigo)
-	
-	enemigo.path_follow = path_follow_instancia
-	enemigo.path_follow.progress = 0
-	
-	print("Enemigo instanciado:", enemigo)
+func spawn_next_enemy():
+	if oleada_actual >= oleadas.size():
+		print("¡Todas las oleadas terminadas! Victoria 🎉")
+		return
+
+	if indice_enemigo >= oleadas[oleada_actual].size():
+		oleada_actual += 1
+		indice_enemigo = 0
+		print("Oleada terminada, preparando la siguiente...")
+		await get_tree().create_timer(3.0).timeout
+		spawn_next_enemy()
+		return
+
+	var tipo = oleadas[oleada_actual][indice_enemigo]
+	var enemigo = factory.crear_enemigo(tipo)
+
+	if enemigo:
+		var pf = PathFollow2D.new()
+		path.add_child(pf)
+		enemigo.path_follow = pf
+		add_child(enemigo)
+
+	indice_enemigo += 1
+	await get_tree().create_timer(1.5).timeout
+	spawn_next_enemy()
