@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://re7dt3ebfnh4"]
+
+[ext_resource type="PackedScene" uid="uid://bobrs0uole8ne" path="res://Scenes/path_2d.tscn" id="1_kry3j"]
+[ext_resource type="PackedScene" uid="uid://bey0xfrvveskg" path="res://Scenes/spawner.tscn" id="2_21xkr"]
+[ext_resource type="PackedScene" uid="uid://cg18mustd2txv" path="res://Scenes/enemy_factory.tscn" id="3_6bp64"]
+[ext_resource type="PackedScene" uid="uid://btto4lw34ub11" path="res://Scenes/nexo.tscn" id="4_344ge"]
+[ext_resource type="PackedScene" uid="uid://beqtj1fuqf8n" path="res://Scenes/game_manager.tscn" id="5_ynf5e"]
+
+[node name="Main" type="Node2D" unique_id=899954386]
+
+[node name="Path2D" parent="." unique_id=2072173199 instance=ExtResource("1_kry3j")]
+
+[node name="Spawner" parent="." unique_id=1238705607 node_paths=PackedStringArray("factory") instance=ExtResource("2_21xkr")]
+position = Vector2(27, 70)
+factory = NodePath("../EnemyFactory")
+
+[node name="EnemyFactory" parent="." unique_id=448954762 instance=ExtResource("3_6bp64")]
+
+[node name="Nexo" parent="." unique_id=1976657354 instance=ExtResource("4_344ge")]
+position = Vector2(1129, 619)
+
+[node name="GameManager" parent="." unique_id=918799425 instance=ExtResource("5_ynf5e")]
