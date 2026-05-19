@@ -1,8 +1,9 @@
 extends Area2D
 
 signal nexo_dañado(vida_restante)
+signal enemigo_alcanzo_nexo
 
-@export var vida_max: int = 15
+@export var vida_max: int = 100
 var vida_actual: int
 
 func _ready() -> void:
@@ -21,4 +22,5 @@ func game_over():
 func _on_area_entered(area: Area2D):
 	if area.is_in_group("enemigos"):
 		recibir_daño(area.daño_nexo)
+		emit_signal("enemigo_alcanzo_nexo")
 		area.queue_free()

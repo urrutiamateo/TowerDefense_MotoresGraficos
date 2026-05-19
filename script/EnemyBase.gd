@@ -24,4 +24,5 @@ func take_damage(cantidad):
 		die()
 
 func die():
+	emit_signal("enemy_dead")
 	queue_free()

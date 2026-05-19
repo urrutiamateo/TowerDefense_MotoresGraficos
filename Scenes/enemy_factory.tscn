@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://cg18mustd2txv"]
 
 [ext_resource type="Script" uid="uid://ba7rvw64scxde" path="res://script/enemy_factory.gd" id="1_iwq1i"]
+[ext_resource type="PackedScene" uid="uid://d21ogo06xosra" path="res://Scenes/enemy_fast.tscn" id="2_vjax8"]
+[ext_resource type="PackedScene" uid="uid://ddg50w1p36g30" path="res://Scenes/enemy_tank.tscn" id="3_dhflg"]
 
 [node name="EnemyFactory" type="Node" unique_id=448954762]
 script = ExtResource("1_iwq1i")
+enemy_fast = ExtResource("2_vjax8")
+enemy_tank = ExtResource("3_dhflg")

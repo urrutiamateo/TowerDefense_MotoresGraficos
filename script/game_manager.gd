@@ -1,7 +1,7 @@
 extends Node
 
-@onready var spawner = $Spawner
-@onready var nexo = $Nexo
+@onready var spawner = get_parent().get_node("Spawner")
+@onready var nexo = get_parent().get_node("Nexo")
 
 var oleadas = [
 	["fast", "fast", "fast", "fast", "fast"],          
@@ -14,6 +14,7 @@ var enemigos_vivos = 0
 
 func _ready():
 	nexo.connect("nexo_dañado", Callable(self, "_on_nexo_dañado"))
+	nexo.connect("enemigo_alcanzo_nexo", Callable(self, "_on_enemy_dead"))
 	siguiente_oleada()
 
 func siguiente_oleada():
@@ -22,7 +23,7 @@ func siguiente_oleada():
 		return
 
 	var wave = oleadas[oleada_actual]
-	var enemigos = spawner.spawn_wave(wave)
+	var enemigos = spawner.spawn_oleada(wave)
 	enemigos_vivos = enemigos.size()
 
 	for e in enemigos:
